@@ -17,7 +17,7 @@
     <td><%= link_to "#{candidate.name}", candidate %></td>
     <td><%= candidate.email %></td>
     <td><%= candidate.state.current %></td>
-    <td><%= link_to 'CV', download_cv_candidate_path(candidate) %></td>
+    <td><%= cv_link_helper(candidate) %></td>
     <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
   </tr>
 <% end %>

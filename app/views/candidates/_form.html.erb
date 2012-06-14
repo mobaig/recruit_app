@@ -20,7 +20,8 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :cv %>
+    <%= f.label :cv, 'CV' %>
+    <%= existing_cv_helper(@candidate) %>
     <%= f.file_field :cv %>
   </div>
   <div class="field">
