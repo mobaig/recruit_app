@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @candidate.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @candidate.email %>
+</p>
+
+<p>
+  <b>Github:</b>
+  <%= @candidate.github %>
+</p>
+
+<p>
+  <b>Linkedin:</b>
+  <%= @candidate.linkedin %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @candidate.website %>
+</p>
+
+<p>
+  <b>CV:</b>
+  <%= link_to 'CV', download_cv_candidate_path(@candidate) %>
+</p>
+
+
+<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
+<%= link_to 'Back', candidates_path %>

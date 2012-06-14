@@ -1,0 +1,28 @@
+<h1>Candidate  List</h1>
+
+<br />
+
+<%= link_to 'Add New Candidate', new_candidate_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>State</th>
+    <th>CV</th>
+  </tr>
+
+<% @candidates.each do |candidate| %>
+  <tr>
+    <td><%= link_to "#{candidate.name}", candidate %></td>
+    <td><%= candidate.email %></td>
+    <td><%= candidate.state.current %></td>
+    <td><%= link_to 'CV', download_cv_candidate_path(candidate) %></td>
+    <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
+ <!--    <td><%= link_to 'Show', candidate %></td>
+
+    <td><%= link_to 'Destroy', candidate, confirm: 'Are you sure?', method: :delete %></td> -->
+  </tr>
+<% end %>
+</table>
+
