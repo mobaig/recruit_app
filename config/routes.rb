@@ -5,6 +5,7 @@ Recruit::Application.routes.draw do
     member do
       get 'download_cv'
     end
+    resources :notes
   end
 
   # The priority is based upon order of creation:

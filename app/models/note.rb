@@ -1,18 +1,19 @@
-class Candidate < ActiveRecord::Base
+class Note < ActiveRecord::Base
   # Included modules & Constants
 
   ### Acts as...
 
   ### Associations
 
-  belongs_to :state
-  has_many :notes
+  belongs_to :candidate
 
   # has_many, belongs_to etc. Also accepts_nested_attributes_for
 
   ### Validations
-  validates :name, :presence => true
-  validates :state, :presence => true
+  validates :author, :presence => true
+  validates :body, :presence => true
+  validates :candidate, :presence => true
+
   ### Standard Rails Callbacks
 
   ### States & State Callbacks

@@ -14,6 +14,8 @@ class CandidatesController < ApplicationController
   # GET /candidates/1.json
   def show
     @candidate = Candidate.find(params[:id])
+    @note = @candidate.notes.build
+    @notes = @candidate.notes
 
     respond_to do |format|
       format.html # show.html.erb
