@@ -1,69 +1,81 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @candidate.class -%>
+<div class="page-header">
+  <h1><%= @candidate.name %></h1>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @candidate.name %>
-</p>
+<div class='span3'>
+  <p>
+    <b>Name:</b>
+    <%= @candidate.name %>
+  </p>
 
-<p>
-  <b>Email:</b>
-  <%= @candidate.email %>
-</p>
+  <p>
+    <b>Email:</b>
+    <%= @candidate.email %>
+  </p>
 
-<p>
-  <b>Github:</b>
-  <%= @candidate.github %>
-</p>
+  <p>
+    <b>Github:</b>
+    <%= @candidate.github %>
+  </p>
 
-<p>
-  <b>Linkedin:</b>
-  <%= @candidate.linkedin %>
-</p>
+  <p>
+    <b>Linkedin:</b>
+    <%= @candidate.linkedin %>
+  </p>
 
-<p>
-  <b>Website:</b>
-  <%= @candidate.website %>
-</p>
+  <p>
+    <b>Website:</b>
+    <%= @candidate.website %>
+  </p>
 
-<p>
-  <b>CV:</b>
-  <%= link_to 'CV', download_cv_candidate_path(@candidate) %>
-</p>
+  <p>
+    <b>CV:</b>
+    <%= link_to 'CV', download_cv_candidate_path(@candidate) %>
+  </p>
 
-<p>
-  <b>State:</b>
-  <%= @candidate.state.current %>
-</p>
+  <p>
+    <b>State:</b>
+    <%= state_label_helper(@candidate.state)%>
+  </p>
 
-<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
-<%= link_to 'Back', candidates_path %>
+  <%= link_to 'Back', candidates_path, :class => 'btn' %>
+  <%= link_to 'Edit', edit_candidate_path(@candidate), :class => 'btn' %>
+</div>
 
-<div id="notes_container">
-  <h2>Notes</h2>
-  <%= form_for [@candidate, @note] do |n|%>
-    <% if @note.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@note.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+<div class="span8">
+  <div id="notes_container">
+    <h2>Notes</h2>
+    <%= form_for [@candidate, @note] do |n|%>
+      <% if @note.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@note.errors.count, "error") %> prohibited this candidate from being saved:</h2>
 
-        <ul>
-        <% @note.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+          <ul>
+          <% @note.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="control-group">
+        <%= n.label :author, :class => 'control-label' %>
+        <div class="controls">
+          <%= n.text_field :author, :class => 'text_field' %>
+        </div>
       </div>
-    <% end %>
-    <div class="field">
-      <%= n.label :author %>
-      <%= n.text_field :author %>
-    </div>
-    <div class="field">
-      <%= n.label :body, 'Comment' %>
-      <%= n.text_field :body %>
-    </div>
-    <div class="actions">
-      <%= n.submit %>
-    </div>
-  <% end %>
 
-  <%= render @notes %>
-<div>
+      <div class="control-group">
+        <%= n.label :body, :class => 'control-label' %>
+        <div class="controls">
+          <%= n.text_area :body, :class => 'input-xlarge', :rows => 3 %>
+        </div>
+      </div>
+
+      <%= n.submit 'Post', :class => 'btn btn-primary' %>
+    <% end %>
+
+    <%= render @all_candidate_notes if @all_candidate_notes %>
+  <div>
+</div>

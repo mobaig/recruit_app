@@ -15,7 +15,7 @@ class CandidatesController < ApplicationController
   def show
     @candidate = Candidate.find(params[:id])
     @note = @candidate.notes.build
-    @notes = @candidate.notes
+    @all_candidate_notes = @candidate.notes.all
 
     respond_to do |format|
       format.html # show.html.erb
