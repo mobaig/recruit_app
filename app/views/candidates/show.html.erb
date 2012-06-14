@@ -30,6 +30,11 @@
   <%= link_to 'CV', download_cv_candidate_path(@candidate) %>
 </p>
 
+<p>
+  <b>State:</b>
+  <%= @candidate.state.current %>
+</p>
+
 
 <%= link_to 'Edit', edit_candidate_path(@candidate) %> |
 <%= link_to 'Back', candidates_path %>
