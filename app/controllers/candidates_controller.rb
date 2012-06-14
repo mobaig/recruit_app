@@ -73,15 +73,15 @@ class CandidatesController < ApplicationController
 
   # DELETE /candidates/1
   # DELETE /candidates/1.json
-  def destroy
-    @candidate = Candidate.find(params[:id])
-    @candidate.destroy
+  # def destroy
+  #   @candidate = Candidate.find(params[:id])
+  #   @candidate.destroy
 
-    respond_to do |format|
-      format.html { redirect_to candidates_url }
-      format.json { head :no_content }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to candidates_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   def download_cv
     cv = Candidate.find(params[:id]).cv
