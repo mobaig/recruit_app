@@ -17,6 +17,7 @@ end
 
 gem 'jquery-rails'
 gem 'carrierwave'
+gem 'faker'
 
 # Custom Groups
 

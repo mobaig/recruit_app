@@ -5,10 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-State.create([{state: 'New'},
-              {state: 'Interview Scheduled'},
-              {state: 'Offered'},
-              {state: 'Offer Declined'},
-              {state: 'Rejected'}])
+State.create(state: 'New')
+State.create(state: 'Interview Scheduled')
+State.create(state: 'Offered')
+State.create(state: 'Offer Declined')
+State.create(state: 'Rejected')
 
-Candidate.create(name:'Bob T. Kandidate', email: 'bob@email.com')
+
+20.times do
+  name = Faker::Name.name
+  email = Faker::Internet.email
+  Candidate.create(name: name, email: email)
+end
