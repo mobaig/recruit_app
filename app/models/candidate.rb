@@ -18,6 +18,7 @@ class Candidate < ActiveRecord::Base
   ### States & State Callbacks
 
   ### Named Scopes
+  default_scope :order => 'state_id ASC'
 
   ### Attributes & Serialization
   mount_uploader :cv, CvUploader

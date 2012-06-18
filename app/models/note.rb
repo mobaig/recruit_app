@@ -19,9 +19,9 @@ class Note < ActiveRecord::Base
   ### States & State Callbacks
 
   ### Named Scopes
+  default_scope :order => 'created_at DESC'
 
   ### Attributes & Serialization
-  mount_uploader :cv, CvUploader
 
   ### Delegation
 
