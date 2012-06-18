@@ -18,7 +18,7 @@ class State < ActiveRecord::Base
   ### Named Scopes
 
   ### Attributes & Serialization
-  def current
+  def name
     self.state
   end
 

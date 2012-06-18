@@ -3,49 +3,33 @@
   <h1><%= @candidate.name %></h1>
 </div>
 
-<div class='span3'>
-  <p>
-    <b>Name:</b>
-    <%= @candidate.name %>
-  </p>
+<div class="row candidate_profile">
+  <div class="span4">
+    <div class="cv_management">
+      <span class="cv_icon"><%= cv_link_helper(@candidate) %></span>
+    </div>
 
-  <p>
-    <b>Email:</b>
-    <%= @candidate.email %>
-  </p>
+    <dl class="dl-horizontal">
+      <dt><%= model_class.human_attribute_name(:email) %></dt>
+      <dd><%= dl_attribute_display_helper(@candidate.email)%></dd>
+      <dt><%= model_class.human_attribute_name(:github) %></dt>
+      <dd><%= dl_attribute_display_helper(@candidate.github) %></dd>
+      <dt><%= model_class.human_attribute_name(:linkedin) %></dt>
+      <dd><%= dl_attribute_display_helper(@candidate.linkedin) %></dd>
+      <dt><%= model_class.human_attribute_name(:website) %></dt>
+      <dd><%= dl_attribute_display_helper(@candidate.website) %></dd>
+      <dt><%= model_class.human_attribute_name(:state) %></dt>
+      <dd><%= state_label_helper(@candidate.state) %></dd>
+    </dl>
 
-  <p>
-    <b>Github:</b>
-    <%= @candidate.github %>
-  </p>
+    <div class="profile_navigation">
+      <%= link_to 'Back', candidates_path, :class => 'btn' %>
+      <%= link_to 'Edit', edit_candidate_path(@candidate), :class => 'btn' %>
+    </div>
+  </div>
 
-  <p>
-    <b>Linkedin:</b>
-    <%= @candidate.linkedin %>
-  </p>
-
-  <p>
-    <b>Website:</b>
-    <%= @candidate.website %>
-  </p>
-
-  <p>
-    <b>CV:</b>
-    <%= link_to 'CV', download_cv_candidate_path(@candidate) %>
-  </p>
-
-  <p>
-    <b>State:</b>
-    <%= state_label_helper(@candidate.state)%>
-  </p>
-
-  <%= link_to 'Back', candidates_path, :class => 'btn' %>
-  <%= link_to 'Edit', edit_candidate_path(@candidate), :class => 'btn' %>
-</div>
-
-<div class="span8">
-  <div id="notes_container">
-    <h2>Notes</h2>
+  <div class="span8 notes_container">
+    <h3>Notes</h3>
     <%= form_for [@candidate, @note] do |n|%>
       <% if @note.errors.any? %>
         <div id="error_explanation">
@@ -77,5 +61,5 @@
     <% end %>
 
     <%= render @all_candidate_notes if @all_candidate_notes %>
-  <div>
+  </div>
 </div>

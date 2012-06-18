@@ -27,7 +27,6 @@ class CandidatesController < ApplicationController
   # GET /candidates/new.json
   def new
     @candidate = Candidate.new
-    @states = State.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,7 +37,6 @@ class CandidatesController < ApplicationController
   # GET /candidates/1/edit
   def edit
     @candidate = Candidate.find(params[:id])
-    @states = State.all
   end
 
   # POST /candidates

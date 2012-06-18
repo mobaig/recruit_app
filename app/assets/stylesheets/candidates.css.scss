@@ -1,0 +1,42 @@
+.candidate_profile {
+
+  .cv_management {
+    margin-bottom: 25px;
+
+    .icon-download {
+      color: green;
+      text-decoration: none;
+    }
+
+    .icon-minus {
+      color: lightgrey;
+    }
+
+    .cv_title {
+      font-size: 30px;
+    }
+
+    .cv_icon {
+      font-size: 42px;
+      margin-left: 10px;
+    }
+  }
+
+  .dl-horizontal {
+    margin-bottom: 30px;
+  }
+}
+
+.candidate_list {
+
+  .icon-download {
+    color: green;
+    text-decoration: none;
+    font-size: 25px;
+  }
+
+  .icon-minus {
+    color: lightgrey;
+    font-size: 25px;
+  }
+}
