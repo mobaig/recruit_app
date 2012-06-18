@@ -1,0 +1,24 @@
+.notes_container {
+  h3 {
+    margin-bottom: 4px;
+  }
+
+  textarea {
+    width: 75%;
+  }
+
+  .control-group {
+    margin-bottom: 0px;
+  }
+
+  .well {
+    padding: 5px;
+    margin-bottom: 5px;
+
+    .timestamp {
+      float: right;
+      color: gray;
+      font-size: 11px;
+    }
+  }
+}

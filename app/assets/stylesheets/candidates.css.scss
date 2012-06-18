@@ -1,7 +1,7 @@
 .candidate_profile {
 
   .cv_management {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     .icon-download {
       color: green;
@@ -23,7 +23,17 @@
   }
 
   .dl-horizontal {
+    $dl_padding: 3px;
     margin-bottom: 30px;
+    font-size: 18px;
+
+    dt {
+      padding-bottom: $dl_padding;
+    }
+
+    dd {
+      padding-bottom: $dl_padding;
+    }
   }
 }
 

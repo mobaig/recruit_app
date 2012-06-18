@@ -4,7 +4,7 @@
 </div>
 
 <div class="row candidate_profile">
-  <div class="span4">
+  <div class="span5">
     <div class="cv_management">
       <span class="cv_icon"><%= cv_link_helper(@candidate) %></span>
     </div>
@@ -18,6 +18,8 @@
       <dd><%= dl_attribute_display_helper(@candidate.linkedin) %></dd>
       <dt><%= model_class.human_attribute_name(:website) %></dt>
       <dd><%= dl_attribute_display_helper(@candidate.website) %></dd>
+      <dt><%= model_class.human_attribute_name(:coding_test) %></dt>
+      <dd><%= dl_attribute_display_helper(@candidate.coding_test) %></dd>
       <dt><%= model_class.human_attribute_name(:state) %></dt>
       <dd><%= state_label_helper(@candidate.state) %></dd>
     </dl>
@@ -28,36 +30,12 @@
     </div>
   </div>
 
-  <div class="span8 notes_container">
+  <div class="span7 notes_container">
     <h3>Notes</h3>
-    <%= form_for [@candidate, @note] do |n|%>
-      <% if @note.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@note.errors.count, "error") %> prohibited this candidate from being saved:</h2>
-
-          <ul>
-          <% @note.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="control-group">
-        <%= n.label :author, :class => 'control-label' %>
-        <div class="controls">
-          <%= n.text_field :author, :class => 'text_field' %>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <%= n.label :body, :class => 'control-label' %>
-        <div class="controls">
-          <%= n.text_area :body, :class => 'input-xlarge', :rows => 3 %>
-        </div>
-      </div>
-
-      <%= n.submit 'Post', :class => 'btn btn-primary' %>
+    <%= simple_form_for [@candidate, @note] do |n|%>
+      <%= n.input :author, :required => false, :label => false, :placeholder => 'author' %>
+      <%= n.input :body, :required => false, :label => false, :placeholder => 'comment', :input_html => {:rows => 3} %>
+      <%= n.button :submit, 'Post', :class => 'btn btn-primary' %>
     <% end %>
 
     <%= render @all_candidate_notes if @all_candidate_notes %>

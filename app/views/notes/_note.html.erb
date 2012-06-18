@@ -1,4 +1,5 @@
 <div class="note well">
+  <div class="timestamp"><%= note.created_at.to_s(:db) %></div>
   <strong><%= note.author %></strong>
   <div><%= note.body %></div>
 </div>

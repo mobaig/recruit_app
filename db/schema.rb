@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(:version => 20120614115552) do
     t.string   "github"
     t.string   "linkedin"
     t.string   "website"
-    t.integer  "state_id",   :default => 1, :null => false
+    t.string   "coding_test"
+    t.integer  "state_id",    :default => 1, :null => false
     t.string   "cv"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "notes", :force => true do |t|
