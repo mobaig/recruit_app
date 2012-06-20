@@ -13,7 +13,9 @@ class Candidate < ActiveRecord::Base
   ### Validations
   validates :name, :presence => true
   validates :state, :presence => true
+
   ### Standard Rails Callbacks
+  before_save :strip_http_from_attributes
 
   ### States & State Callbacks
 
@@ -37,5 +39,10 @@ class Candidate < ActiveRecord::Base
 
   # public ....
 
-  # private ...
+  private
+  def strip_http_from_attributes
+    self.attributes.each do |k, v|
+      self[k] = v.gsub(/https?:\/\//, '') if v.class == String
+    end
+  end
 end

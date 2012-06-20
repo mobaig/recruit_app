@@ -32,4 +32,12 @@ module CandidatesHelper
   def candidate_state_select_helper(form)
     form.collection_select :state_id, State.all, :id, :state, :class => 'select_field'
   end
+
+  def dd_display_link(external_link)
+    external_link.blank? ? '..' : link_to("#{external_link}", "http://#{external_link}")
+  end
+
+  def dd_display_email(email)
+    email.blank? ? '..' : mail_to("#{email}")
+  end
 end
