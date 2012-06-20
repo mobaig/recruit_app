@@ -16,6 +16,6 @@
 
 /.rvmrc
 
-/public/uploads/
+/public/system/uploads/
 
 /config/database.yml
