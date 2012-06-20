@@ -25,3 +25,7 @@ gem 'simple_form'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+group :development do
+  gem 'capistrano'
+end
