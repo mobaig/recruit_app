@@ -15,16 +15,20 @@ module CandidatesHelper
   end
 
   def state_label_helper(state)
-    case state.id
-    when 1
+    case state.name
+    when "New"
       content_tag(:span, state.name, :class => "label label-success")
-    when 2
+    when "Test Sent"
       content_tag(:span, state.name, :class => "label label-warning")
-    when 3
+    when "Test Under Review"
+      content_tag(:span, state.name, :class => "label label-warning")
+    when "Interview Scheduled"
       content_tag(:span, state.name, :class => "label label-info")
-    when 4
+    when "Offered"
+      content_tag(:span, state.name, :class => "label label-info")
+    when "Offer Declined"
       content_tag(:span, state.name, :class => "label label-inverse")
-    when 5
+    when "Rejected"
       content_tag(:span, state.name, :class => "label label-important")
     end
   end
@@ -33,8 +37,12 @@ module CandidatesHelper
     form.collection_select :state_id, State.all, :id, :state, :class => 'select_field'
   end
 
-  def dd_display_link(external_link)
+  def dd_display_external_link(external_link)
     external_link.blank? ? '..' : link_to("#{external_link}", "http://#{external_link}")
+  end
+
+  def dd_display_internal_link(resource)
+    resource.blank? ? '..' : link_to("#{resource.send(:name)}", resource)
   end
 
   def dd_display_email(email)

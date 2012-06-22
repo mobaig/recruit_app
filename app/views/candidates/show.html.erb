@@ -4,7 +4,7 @@
 </div>
 
 <div class="row candidate_profile">
-  <div class="span5">
+  <div class="span6">
     <div class="cv_management">
       <span class="cv_icon"><%= cv_link_helper(@candidate) %></span>
     </div>
@@ -14,16 +14,22 @@
       <dd><%= dd_display_email(@candidate.email) %></dd>
 
       <dt><%= model_class.human_attribute_name(:github) %></dt>
-      <dd><%= dd_display_link(@candidate.github) %></dd>
+      <dd><%= dd_display_external_link(@candidate.github) %></dd>
 
       <dt><%= model_class.human_attribute_name(:linkedin) %></dt>
-      <dd><%= dd_display_link(@candidate.linkedin) %></dd>
+      <dd><%= dd_display_external_link(@candidate.linkedin) %></dd>
 
       <dt><%= model_class.human_attribute_name(:website) %></dt>
-      <dd><%= dd_display_link(@candidate.website) %></dd>
+      <dd><%= dd_display_external_link(@candidate.website) %></dd>
 
       <dt><%= model_class.human_attribute_name(:coding_test) %></dt>
-      <dd><%= dd_display_link(@candidate.coding_test) %></dd>
+      <dd><%= dd_display_external_link(@candidate.coding_test) %></dd>
+
+      <dt><%= model_class.human_attribute_name(:agent) %></dt>
+      <dd><%= dd_display_internal_link(@candidate.agent) %></dd>
+
+      <dt><%= model_class.human_attribute_name(:salary_expectation) %></dt>
+      <dd><%= "£ #{@candidate.salary_expectation}" %></dd>
 
       <dt><%= model_class.human_attribute_name(:state) %></dt>
       <dd><%= state_label_helper(@candidate.state) %></dd>
@@ -35,7 +41,7 @@
     </div>
   </div>
 
-  <div class="span7 notes_container">
+  <div class="span6 notes_container">
     <h3>Notes</h3>
     <%= simple_form_for [@candidate, @note] do |n|%>
       <%= n.input :author, :required => false, :label => false, :placeholder => 'author' %>

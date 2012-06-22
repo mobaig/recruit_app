@@ -1,5 +1,7 @@
 Recruit::Application.routes.draw do
 
+  resources :agents
+
   root :to => 'candidates#index'
   resources :candidates do
     member do

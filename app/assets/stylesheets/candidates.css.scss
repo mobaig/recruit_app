@@ -1,5 +1,4 @@
 .candidate_profile {
-
   .cv_management {
     margin-bottom: 20px;
 
@@ -29,10 +28,12 @@
 
     dt {
       padding-bottom: $dl_padding;
+      width: 160px;
     }
 
     dd {
       padding-bottom: $dl_padding;
+      margin-left: 170px;
     }
   }
 }
