@@ -2,10 +2,9 @@
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :phone %>
-  <%= f.input :description %>
+  <%= f.input :description, :input_html => {:rows => 6}  %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                recruiters_path, :class => 'btn' %>
+    <%= link_to 'Cancel', recruiters_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -1,42 +1,27 @@
 <%- model_class = Recruiter.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%= model_class.model_name.human.pluralize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @recruiters.each do |recruiter| %>
       <tr>
-        <td><%= link_to recruiter.id, recruiter_path(recruiter) %></td>
-        <td><%= recruiter.name %></td>
+        <td><%= link_to recruiter.name, recruiter_path(recruiter) %></td>
         <td><%= recruiter.email %></td>
         <td><%= recruiter.phone %></td>
-        <td><%= recruiter.description %></td>
-        <td><%=l recruiter.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_recruiter_path(recruiter), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      recruiter_path(recruiter),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Edit', edit_recruiter_path(recruiter), :class => 'btn btn-mini' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_recruiter_path,
-            :class => 'btn btn-primary' %>
+<%= link_to 'New', new_recruiter_path, :class => 'btn btn-primary' %>

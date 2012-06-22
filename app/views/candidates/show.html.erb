@@ -11,28 +11,28 @@
 
     <dl class="dl-horizontal">
       <dt><%= model_class.human_attribute_name(:email) %></dt>
-      <dd><%= dd_display_email(@candidate.email) %></dd>
+      <dd><%= display_email(@candidate.email) %></dd>
 
       <dt><%= model_class.human_attribute_name(:github) %></dt>
-      <dd><%= dd_display_external_link(@candidate.github) %></dd>
+      <dd><%= display_external_link(@candidate.github) %></dd>
 
       <dt><%= model_class.human_attribute_name(:linkedin) %></dt>
-      <dd><%= dd_display_external_link(@candidate.linkedin) %></dd>
+      <dd><%= display_external_link(@candidate.linkedin) %></dd>
 
       <dt><%= model_class.human_attribute_name(:website) %></dt>
-      <dd><%= dd_display_external_link(@candidate.website) %></dd>
+      <dd><%= display_external_link(@candidate.website) %></dd>
 
       <dt><%= model_class.human_attribute_name(:coding_test) %></dt>
-      <dd><%= dd_display_external_link(@candidate.coding_test) %></dd>
+      <dd><%= display_external_link(@candidate.coding_test) %></dd>
 
       <dt><%= model_class.human_attribute_name(:recruiter) %></dt>
-      <dd><%= dd_display_internal_link(@candidate.recruiter, :name) %></dd>
+      <dd><%= display_internal_link(@candidate.recruiter, :name) %></dd>
 
       <dt><%= model_class.human_attribute_name(:salary_expectation) %></dt>
       <dd><%= "£ #{@candidate.salary_expectation}" %></dd>
 
       <dt><%= model_class.human_attribute_name(:job) %></dt>
-      <dd><%= dd_display_internal_link(@candidate.job, :title) %></dd>
+      <dd><%= display_internal_link(@candidate.job, :title) %></dd>
 
       <dt><%= model_class.human_attribute_name(:state) %></dt>
       <dd><%= state_label_helper(@candidate.state) %></dd>
