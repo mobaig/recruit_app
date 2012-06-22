@@ -31,6 +31,9 @@
       <dt><%= model_class.human_attribute_name(:salary_expectation) %></dt>
       <dd><%= "£ #{@candidate.salary_expectation}" %></dd>
 
+      <dt><%= model_class.human_attribute_name(:job) %></dt>
+      <dd><%= @candidate.job.blank? ? '..' : link_to("#{@candidate.job.title}", @candidate.job) %></dd>
+
       <dt><%= model_class.human_attribute_name(:state) %></dt>
       <dd><%= state_label_helper(@candidate.state) %></dd>
     </dl>

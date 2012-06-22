@@ -1,0 +1,9 @@
+<%= simple_form_for @job, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :open %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to 'Cancel', jobs_path, :class => 'btn' %>
+  </div>
+<% end %>
