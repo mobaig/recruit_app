@@ -5,7 +5,7 @@ class Candidate < ActiveRecord::Base
 
   ### Associations
   belongs_to :state
-  belongs_to :agent
+  belongs_to :recruiter
   belongs_to :job
 
   has_many :notes

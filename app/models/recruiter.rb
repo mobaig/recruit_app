@@ -1,4 +1,4 @@
-class Agent < ActiveRecord::Base
+class Recruiter < ActiveRecord::Base
   # Included modules & Constants
 
   ### Acts as...

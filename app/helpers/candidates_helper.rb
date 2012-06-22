@@ -41,8 +41,8 @@ module CandidatesHelper
     external_link.blank? ? '..' : link_to("#{external_link}", "http://#{external_link}")
   end
 
-  def dd_display_internal_link(resource)
-    resource.blank? ? '..' : link_to("#{resource.send(:name)}", resource)
+  def dd_display_internal_link(resource, method)
+    resource.blank? ? '..' : link_to("#{resource.send(method)}", resource)
   end
 
   def dd_display_email(email)

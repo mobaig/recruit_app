@@ -1,5 +1,7 @@
 Recruit::Application.routes.draw do
 
+  resources :recruiters
+
   resources :agents
   resources :jobs
 

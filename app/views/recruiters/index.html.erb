@@ -1,4 +1,4 @@
-<%- model_class = Agent.new.class -%>
+<%- model_class = Recruiter.new.class -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
@@ -15,19 +15,19 @@
     </tr>
   </thead>
   <tbody>
-    <% @agents.each do |agent| %>
+    <% @recruiters.each do |recruiter| %>
       <tr>
-        <td><%= link_to agent.id, agent_path(agent) %></td>
-        <td><%= agent.name %></td>
-        <td><%= agent.email %></td>
-        <td><%= agent.phone %></td>
-        <td><%= agent.description %></td>
-        <td><%=l agent.created_at %></td>
+        <td><%= link_to recruiter.id, recruiter_path(recruiter) %></td>
+        <td><%= recruiter.name %></td>
+        <td><%= recruiter.email %></td>
+        <td><%= recruiter.phone %></td>
+        <td><%= recruiter.description %></td>
+        <td><%=l recruiter.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_agent_path(agent), :class => 'btn btn-mini' %>
+                      edit_recruiter_path(recruiter), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      agent_path(agent),
+                      recruiter_path(recruiter),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
@@ -38,5 +38,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_agent_path,
+            new_recruiter_path,
             :class => 'btn btn-primary' %>

@@ -5,10 +5,11 @@
   <%= f.input :linkedin %>
   <%= f.input :website %>
   <%= f.input :coding_test %>
+  <%= f.association :recruiter %>
   <%= f.input :salary_expectation, :as => :string %>
   <%= f.association :job %>
   <%= f.association :state, :include_blank => false %>
-  <%= f.association :agent %>
+  <%= f.input :interview_date %>
   <%= f.input :cv, :label => 'CV', :as => :file %>
   <%= existing_cv_helper(@candidate) %>
   <div class="form-actions">
