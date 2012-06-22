@@ -2,7 +2,9 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
-    @candidates = Candidate.all
+    @job_id = params[:job]
+    @candidates = Candidate.filter_by_job(@job_id)
+    @jobs = Job.all
 
     respond_to do |format|
       format.html # index.html.erb

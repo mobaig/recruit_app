@@ -5,6 +5,13 @@
 
 <%= link_to 'Add Candidate', new_candidate_path, :class => 'btn btn-primary' %>
 
+<div class="candidate_filter">
+  <%= form_tag '/candidates', :method => :get do %>
+    <%= select_tag :job, options_from_collection_for_select(@jobs, "id", "title"), :include_blank => true %>
+    <%= submit_tag 'Filter' %>
+  <% end %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>

@@ -57,3 +57,11 @@
   font-style: italic;
   margin-top: -15px;
 }
+
+.candidate_filter {
+  margin-top: 5px;
+
+  input[name="commit"] {
+    margin-bottom: 8px;
+  }
+}

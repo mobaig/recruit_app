@@ -33,6 +33,9 @@ class Candidate < ActiveRecord::Base
   ### Sphinx Index
 
   ### Class Methods
+  def self.filter_by_job(job_id)
+    job_id.blank? ? all : where(:job_id => job_id)
+  end
 
   # public ...
 
