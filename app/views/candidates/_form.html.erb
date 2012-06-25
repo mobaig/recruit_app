@@ -9,7 +9,7 @@
   <%= f.input :salary_expectation, :as => :string %>
   <%= f.association :job %>
   <%= f.association :state, :include_blank => false %>
-  <%= f.input :interview_date %>
+  <%= f.input :interview_date, :include_blank => true, :start_year => Date.today.year %>
   <%= f.input :cv, :label => 'CV', :as => :file %>
   <%= existing_cv_helper(@candidate) %>
   <div class="form-actions">
