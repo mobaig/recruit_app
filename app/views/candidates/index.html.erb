@@ -7,6 +7,7 @@
 
 <div class="candidate_filter">
   <%= form_tag '/candidates', :method => :get do %>
+    <strong><p>Filter by job:</p></strong>
     <%= select_tag :job, options_from_collection_for_select(@jobs, "id", "title"), :include_blank => true %>
     <%= submit_tag 'Filter' %>
   <% end %>
