@@ -1,4 +1,4 @@
-Recruitasaurus::Application.routes.draw do
+Recruit::Application.routes.draw do
 
   resources :recruiters
 

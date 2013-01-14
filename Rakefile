@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Recruitasaurus::Application.load_tasks
+Recruit::Application.load_tasks
