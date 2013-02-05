@@ -1,0 +1,37 @@
+- model_class = Candidate.new.class
+
+%div.page-header
+  %h1
+    = #{model_class.model_name.human.pluralize} List
+
+= link_to 'Add Candidate', new_candidate_path, :class => 'btn btn-primary'
+
+%div.candidate_filter
+  = form_tag '/candidate', :method => :get do
+    %strong
+      %p
+        Filter by job:
+    = select_tag :job, options_from_collection_for_select(@jobs, "id", "title"), :include_blank => true
+    = submit_tag 'Filter'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:email)
+      %th= model_class.human_attribute_name(:job)
+      %th= model_class.human_attribute_name(:state_id)
+      %th= model_class.human_attribute_name(:interview_date)
+      %th CV
+
+  %thead
+    %tbody.candidate_list
+      - @candidates.each do |candidate|
+        %tr
+          %td= link_to candidate.name, candidate_path(candidate)
+          %td= candidate.email
+          %td= display_internal_link(candidate.job, :title)
+          %td= state_label_helper(candidate.state)
+          %td= candidate.interview_date
+          %td= cv_link_helper(candidate)
+          %td= link_to 'Edit', edit_candidate_path(candidate), :class => 'btn btn-mini'
